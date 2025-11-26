@@ -16,7 +16,7 @@
     "task",
     "api"
   ],
-  "author": "",
+  "author": "Rupsa Nanda",
   "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",
