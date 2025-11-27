@@ -32,7 +32,7 @@ export function TaskCard({ task, onEdit, onDelete }: TaskCardProps) {
   const priority = priorityConfig[task.priority]
 
   return (
-    <div className="glass-card rounded-2xl p-6 hover:glow-accent transition-all duration-300 group">
+    <div className="glass-card rounded-2xl p-8 hover:glow-accent transition-all duration-300 group min-h-[160px]">
       <div className="flex items-start justify-between mb-3">
         <div className="flex items-center gap-3">
           <Badge variant="outline" className={cn("rounded-lg", status.class)}>
@@ -57,15 +57,15 @@ export function TaskCard({ task, onEdit, onDelete }: TaskCardProps) {
         </DropdownMenu>
       </div>
 
-      <h3 className="font-semibold text-foreground mb-2 group-hover:text-accent transition-colors">{task.title}</h3>
-      <p className="text-sm text-muted-foreground line-clamp-2 mb-4">{task.description}</p>
+      <h3 className="font-semibold text-xl text-foreground mb-2 group-hover:text-accent transition-colors">{task.title}</h3>
+      <p className="text-base text-muted-foreground line-clamp-3 mb-4">{task.description}</p>
 
       <div className="pt-4 border-t border-border/50 flex items-center justify-between">
-        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+        <div className="flex items-center gap-2 text-base text-muted-foreground">
           <User className="h-4 w-4" />
           <span>{assignedEmployee?.name || "Unassigned"}</span>
         </div>
-        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+        <div className="flex items-center gap-2 text-base text-muted-foreground">
           <Calendar className="h-4 w-4" />
           <span>{new Date(task.dueDate).toLocaleDateString("en-US", { month: "short", day: "numeric" })}</span>
         </div>

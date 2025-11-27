@@ -83,7 +83,9 @@
 }
 
 @theme inline {
-  --font-sans: var(--font-inter), "Inter", system-ui, sans-serif;
+  --font-body: var(--font-body), "Space Grotesk", system-ui, sans-serif;
+  --font-heading: var(--font-heading), "Orbitron", system-ui, sans-serif;
+  --font-sans: var(--font-body);
   --font-mono: "Geist Mono", "Fira Code", monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -131,11 +133,16 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply text-foreground;
+    @apply text-foreground;    
     background-image: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
   }
 }
 

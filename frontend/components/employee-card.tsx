@@ -15,10 +15,10 @@ interface EmployeeCardProps {
 
 export function EmployeeCard({ employee, onEdit, onDelete }: EmployeeCardProps) {
   return (
-    <div className="glass-card rounded-2xl p-6 hover:glow-primary transition-all duration-300 group">
+    <div className="glass-card rounded-2xl p-8 hover:glow-primary transition-all duration-300 group">
       <div className="flex items-start justify-between mb-4">
         <div className="flex items-center gap-4">
-          <div className="w-14 h-14 rounded-xl bg-primary/20 flex items-center justify-center group-hover:scale-105 transition-transform">
+          <div className="w-16 h-16 rounded-xl bg-primary/20 flex items-center justify-center group-hover:scale-105 transition-transform">
             <span className="text-xl font-bold text-primary">
               {employee.name
                 .split(" ")

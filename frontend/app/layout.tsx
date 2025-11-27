@@ -1,11 +1,12 @@
 import type React from "react"
 import type { Metadata, Viewport } from "next"
-import { Inter } from "next/font/google"
+import { Orbitron, Space_Grotesk } from 'next/font/google'
 import "./globals.css"
 import { Toaster } from "@/components/ui/sonner"
 import { AuthProvider } from "@/context/auth-context"
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
+const orbitron = Orbitron({ subsets: ['latin'], weight: ['400','700'], variable: '--font-heading' })
+const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], weight: ['300','400','700'], variable: '--font-body' })
 
 export const metadata: Metadata = {
   title: "ProU-EMS | Employee & Task Management",
@@ -37,8 +38,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="dark">
-      <body className={`${inter.variable} font-sans antialiased`}>
+      <html lang="en" className="dark">
+        <body className={`${spaceGrotesk.variable} ${orbitron.variable} font-sans antialiased`}>
         <AuthProvider>
           {children}
           <Toaster position="top-right" richColors />

@@ -21,11 +21,11 @@ export function StatsCard({
   iconColor = "text-primary",
 }: StatsCardProps) {
   return (
-    <div className="glass-card rounded-2xl p-6 hover:glow-primary transition-all duration-300 group min-h-[120px]">
+    <div className="glass-card rounded-2xl p-8 hover:glow-primary transition-all duration-300 group min-h-[160px]">
       <div className="flex items-start justify-between">
         <div>
-          <p className="text-sm text-muted-foreground mb-1">{title}</p>
-          <p className="text-3xl font-bold text-foreground">{value}</p>
+          <p className="text-base text-muted-foreground mb-1">{title}</p>
+          <p className="text-4xl font-bold text-foreground">{value}</p>
           {change && (
             <p
               className={cn(
