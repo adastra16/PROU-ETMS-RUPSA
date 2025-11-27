@@ -78,6 +78,17 @@ cd frontend
 pnpm install # include dev deps (sharp)
 npm run generate-icons
 ```
+This will create PNG assets in `frontend/public`. The script attempts to create a `favicon.ico` (if `png-to-ico` or `to-ico` is present), but on some systems you may need to install `png-to-ico` manually or ensure build tools are available. If the `.ico` doesn't appear, you can:
+
+- Run inside the `frontend` folder:
+
+```powershell
+# Install `png-to-ico` locally and re-run the script
+npm install --save-dev png-to-ico
+npm run generate-icons
+```
+
+Or use an external or web-based tool to generate a `favicon.ico` from `favicon-16x16.png` and `favicon-32x32.png`.
 
 ### 3. Configure environment variables
 - **Frontend**: Edit `.env.local` (API base URL)
