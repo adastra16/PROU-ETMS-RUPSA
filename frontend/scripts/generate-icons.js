@@ -27,7 +27,8 @@ async function render() {
       const outPath = path.join(publicDir, o.file)
       let pipeline = sharp(input, { density: 600 })
         .resize(o.size, o.size, { fit: 'contain', background: '#00000000' })
-        .png({ progressive: true })
+        // Use non-interlaced PNGs for better compatibility with ico generators
+        .png({ progressive: false })
 
       // Apply tint if provided — this helps create dark or light variants
       if (o.tint) {
@@ -43,6 +44,73 @@ async function render() {
 
       await pipeline.toFile(outPath)
       console.log(`Wrote ${outPath}`)
+    }
+
+    // Create a favicon.ico from the 16x16 and 32x32 PNGs (if available)
+    try {
+      // Prefer `png-to-ico`/`to-ico` but fall back to `favicons` for robust generation
+      let toIco = null
+      try {
+        toIco = require('to-ico')
+      } catch (e) {
+        try {
+          toIco = require('png-to-ico')
+        } catch (err) {
+          toIco = null
+        }
+      }
+      const icoInput32 = path.join(publicDir, 'favicon-32x32.png')
+      const icoInput16 = path.join(publicDir, 'favicon-16x16.png')
+      const icoOutput = path.join(publicDir, 'favicon.ico')
+
+      if (fs.existsSync(icoInput32) && fs.existsSync(icoInput16)) {
+        const buf32 = fs.readFileSync(icoInput32)
+        const buf16 = fs.readFileSync(icoInput16)
+        if (toIco) {
+          const buffer = await toIco([buf32, buf16])
+          fs.writeFileSync(icoOutput, buffer)
+          console.log(`Wrote ${icoOutput}`)
+        } else {
+          // Fallback to favicons package which can generate ICOs among other icons
+          const favicons = require('favicons')
+          const config = {
+            path: '/',
+            icons: {
+              android: false,
+              appleIcon: false,
+              coast: false,
+              favicons: true,
+              firefox: false,
+              windows: false,
+              yandex: false,
+            },
+          }
+          try {
+            const response = await favicons(input, config)
+            // Write each generated file into `public`
+            if (response.images) {
+              for (const image of response.images) {
+                const outPath = path.join(publicDir, image.name)
+                fs.writeFileSync(outPath, image.contents)
+                console.log(`Wrote ${outPath}`)
+              }
+            }
+            if (response.files) {
+              for (const file of response.files) {
+                const outPath = path.join(publicDir, file.name)
+                fs.writeFileSync(outPath, file.contents)
+                console.log(`Wrote ${outPath}`)
+              }
+            }
+          } catch (favErr) {
+            console.warn('favicons fallback failed — unable to generate favicon.ico. Error:', favErr.message)
+          }
+        }
+      } else {
+        console.log('Skipping favicon.ico generation: missing input PNGs')
+      }
+    } catch (err) {
+      console.warn('png-to-ico failed — skipping .ico generation. To enable, run `npm install --save-dev png-to-ico`. Error:', err.message)
     }
 
     console.log('\nIcon generation complete.')

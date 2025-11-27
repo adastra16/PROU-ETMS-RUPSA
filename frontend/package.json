@@ -82,6 +82,8 @@
     "tailwindcss": "^4.1.9",
     "tw-animate-css": "1.3.3",
     "typescript": "^5",
-    "sharp": "^0.33.0"
+    "sharp": "^0.33.0",
+    "png-to-ico": "^1.0.0",
+    "favicons": "^8.0.0"
   }
 }

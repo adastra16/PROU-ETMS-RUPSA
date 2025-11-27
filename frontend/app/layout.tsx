@@ -12,14 +12,16 @@ export const metadata: Metadata = {
   description: "Premium Employee and Task Management System with stunning 3D visuals",
   generator: 'v0.app',
     icons: {
+      // include `favicon.ico` as the first icon so clients that prefer .ico files can pick it
       icon: [
+        { url: '/favicon.ico', type: 'image/x-icon' },
         { url: '/icon.svg', type: 'image/svg+xml' },
         { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
         { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
         { url: '/icon-dark-32x32.png', sizes: '32x32', type: 'image/png' },
         { url: '/icon-light-32x32.png', sizes: '32x32', type: 'image/png' },
       ],
-      shortcut: '/favicon-32x32.png',
+      shortcut: '/favicon.ico',
       // Use the generated apple-touch PNG
       apple: '/apple-icon.png',
     },
