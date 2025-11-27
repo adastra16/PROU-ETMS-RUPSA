@@ -154,6 +154,4 @@ Rupsa Nanda
 
 
 
-- Make sure MongoDB is running (local or a managed instance like Atlas). If running locally and you haven’t created a `.env` file, the backend will fall back to `mongodb://127.0.0.1:27017` for development.
-- The frontend defaults `NEXT_PUBLIC_API_BASE_URL` to `http://localhost:5000/api` if not set. Update it if your API runs elsewhere.
-- If you added or changed configs, and you see CORS issues, verify `FRONTEND_ORIGIN` in the backend `.env` & allowed list in `server.js`.
+
