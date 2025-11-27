@@ -24,13 +24,13 @@ import type { Task } from "@/context/data-context"
 import { toast } from "sonner"
 
 const activityData = [
-  { name: "Mon", tasks: 12, completed: 8 },
-  { name: "Tue", tasks: 19, completed: 14 },
-  { name: "Wed", tasks: 15, completed: 12 },
-  { name: "Thu", tasks: 22, completed: 18 },
-  { name: "Fri", tasks: 18, completed: 15 },
-  { name: "Sat", tasks: 8, completed: 6 },
-  { name: "Sun", tasks: 5, completed: 4 },
+  { name: "Mon", tasks: 28, completed: 22 },
+  { name: "Tue", tasks: 35, completed: 29 },
+  { name: "Wed", tasks: 42, completed: 38 },
+  { name: "Thu", tasks: 31, completed: 26 },
+  { name: "Fri", tasks: 48, completed: 45 },
+  { name: "Sat", tasks: 19, completed: 16 },
+  { name: "Sun", tasks: 15, completed: 12 },
 ]
 
 export default function DashboardPage() {
@@ -127,15 +127,15 @@ export default function DashboardPage() {
         {/* Right: Charts area */}
         <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Activity Chart */}
-          <div className="md:col-span-2 glass-card rounded-2xl p-6">
+          <div className="md:col-span-2 glass-card rounded-2xl p-8">
           <h2 className="text-lg font-semibold mb-4">Weekly Activity</h2>
           <div className="h-[280px]">
             <ResponsiveContainer width="100%" height="100%">
               <AreaChart data={activityData}>
                 <defs>
                   <linearGradient id="colorTasks" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#22d3ee" stopOpacity={0.3} />
-                    <stop offset="95%" stopColor="#22d3ee" stopOpacity={0} />
+                    <stop offset="5%" stopColor="#eab308" stopOpacity={0.3} />
+                    <stop offset="95%" stopColor="#eab308" stopOpacity={0} />
                   </linearGradient>
                   <linearGradient id="colorCompleted" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="5%" stopColor="#34d399" stopOpacity={0.3} />
@@ -155,7 +155,7 @@ export default function DashboardPage() {
                 <Area
                   type="monotone"
                   dataKey="tasks"
-                  stroke="#22d3ee"
+                  stroke="#eab308"
                   fillOpacity={1}
                   fill="url(#colorTasks)"
                   strokeWidth={2}
@@ -174,7 +174,7 @@ export default function DashboardPage() {
         </div>
 
           {/* Task Distribution */}
-          <div className="glass-card rounded-2xl p-6">
+          <div className="glass-card rounded-2xl p-8">
           <h2 className="text-lg font-semibold mb-4">Task Distribution</h2>
           <div className="h-[200px]">
             <ResponsiveContainer width="100%" height="100%">

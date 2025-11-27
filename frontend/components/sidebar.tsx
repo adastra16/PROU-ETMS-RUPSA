@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
-import { LayoutDashboard, Users, CheckSquare, LogOut, Menu, X, Sparkles } from "lucide-react"
+import { LayoutDashboard, Users, CheckSquare, LogOut, Menu, X } from "lucide-react"
 import { useAuth } from "@/context/auth-context"
 import { Button } from "@/components/ui/button"
 import { useState } from "react"
@@ -46,16 +46,11 @@ export function Sidebar() {
           isOpen ? "translate-x-0" : "-translate-x-full",
         )}
       >
-        <div className="flex flex-col h-full p-6">
+        <div className="flex flex-col h-full p-8">
           {/* Logo */}
           <Link href="/dashboard" className="flex items-center gap-3 mb-10" onClick={() => setIsOpen(false)}>
-            <div className="relative">
-              <div className="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center glow-primary">
-                <Sparkles className="w-5 h-5 text-primary" />
-              </div>
-            </div>
             <span className="text-xl font-bold text-foreground">
-              ProU<span className="text-primary">-EMS</span>
+              PROU<span className="text-primary">-ETMS</span>
             </span>
           </Link>
 

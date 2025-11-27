@@ -11,7 +11,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { ThreeBackground } from "@/components/three-background"
 import ServerStatus from "@/components/server-status"
-import { Sparkles, Mail, Lock, ArrowRight } from "lucide-react"
+import { Mail, Lock, ArrowRight } from "lucide-react"
 import { toast } from "sonner"
 
 export default function LoginPage() {
@@ -53,11 +53,8 @@ export default function LoginPage() {
       <div className="w-full max-w-md">
         {/* Logo */}
         <div className="flex items-center justify-center gap-3 mb-8">
-          <div className="w-14 h-14 rounded-2xl bg-primary/20 flex items-center justify-center glow-primary shadow-md">
-            <Sparkles className="w-7 h-7 text-primary" />
-          </div>
           <span className="text-3xl font-extrabold tracking-tight">
-            ProU<span className="text-primary">-EMS</span>
+            PROU<span className="text-primary">-ETMS</span>
           </span>
         </div>
 

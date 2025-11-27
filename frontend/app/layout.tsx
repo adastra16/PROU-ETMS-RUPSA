@@ -9,7 +9,7 @@ const orbitron = Orbitron({ subsets: ['latin'], weight: ['400','700'], variable:
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], weight: ['300','400','700'], variable: '--font-body' })
 
 export const metadata: Metadata = {
-  title: "ProU-EMS | Employee & Task Management",
+  title: "PROU-ETMS | Employee & Task Management",
   description: "Premium Employee and Task Management System with stunning 3D visuals",
   generator: 'v0.app',
     icons: {

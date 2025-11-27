@@ -4,10 +4,10 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #030303; /* default black background */
-  /* gradient for backgrounds - subtle greys */
-  --bg-gradient-start: #0b0b0b; /* near-black */
-  --bg-gradient-end: #131313; /* slightly lighter black */
+  --background: #0a0a0f; /* space dark background */
+  /* gradient for backgrounds - space theme */
+  --bg-gradient-start: #0a0a0f; /* deep space */
+  --bg-gradient-end: #1a1a2e; /* space grey */
   --foreground: #D1D5DB; /* gray-300 */
   --card: #0d0f12; /* card background - dark */
   --card-foreground: #D1D5DB;
@@ -46,9 +46,9 @@
 }
 
 .dark {
-  --background: #030303;
-  --bg-gradient-start: #070707;
-  --bg-gradient-end: #0b0b0b;
+  --background: #0a0a0f;
+  --bg-gradient-start: #0a0a0f;
+  --bg-gradient-end: #1a1a2e;
   --foreground: #e6eef3;
   --card: oklch(0.14 0.02 270);
   --card-foreground: #e6eef3;
@@ -134,7 +134,7 @@
   }
   body {
     @apply text-foreground;    
-    background-image: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+    background-image: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end), #0f0f1a);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;

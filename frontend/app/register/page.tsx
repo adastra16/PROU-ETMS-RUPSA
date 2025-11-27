@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { ThreeBackground } from "@/components/three-background"
-import { Sparkles, Mail, Lock, User, ArrowRight } from "lucide-react"
+import { Mail, Lock, User, ArrowRight } from "lucide-react"
 import { toast } from "sonner"
 
 export default function RegisterPage() {
@@ -59,11 +59,8 @@ export default function RegisterPage() {
       <div className="w-full max-w-md">
         {/* Logo */}
         <div className="flex items-center justify-center gap-3 mb-8">
-          <div className="w-14 h-14 rounded-2xl bg-primary/20 flex items-center justify-center glow-primary shadow-md">
-            <Sparkles className="w-7 h-7 text-primary" />
-          </div>
           <span className="text-3xl font-extrabold tracking-tight">
-            ProU<span className="text-primary">-EMS</span>
+            PROU<span className="text-primary">-ETMS</span>
           </span>
         </div>
 
@@ -71,7 +68,7 @@ export default function RegisterPage() {
         <div className="glass rounded-xl p-10 glow-primary shadow-xl backdrop-blur-md">
           <div className="text-center mb-8">
             <h1 className="text-3xl font-extrabold mb-2">Create Account</h1>
-            <p className="text-muted-foreground">Join ProU-EMS and boost your productivity</p>
+            <p className="text-muted-foreground">Join PROU-ETMS and boost your productivity</p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-5">
