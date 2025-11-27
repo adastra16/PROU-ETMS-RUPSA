@@ -1,11 +1,4 @@
-### Alternate: Generate `favicon.ico` directly with `png-to-ico`
-If you prefer to create `favicon.ico` directly without installing other packages, you can use `npx`:
 
-```powershell
-npx png-to-ico ./frontend/public/favicon-32x32.png ./frontend/public/favicon-16x16.png > ./frontend/public/favicon.ico
-```
-
-This uses the `png-to-ico` package via `npx` to immediately create a valid `favicon.ico` (if the package is available). If it fails, install locally and re-run `npm run generate-icons` as shown earlier.
 
 
 # Employee Task Management System
@@ -153,66 +146,10 @@ Rupsa Nanda
 
 ---
 
-## Quick Start (Windows)
-1. Clone the repository
-```powershell
-git clone https://github.com/adastra16/PROU-EMS-RUPSA.git
-cd ProU-EMS-RUPSA
-```
 
-2. Install dependencies
-```powershell
-# Frontend
-cd frontend
-pnpm install
 
-# Backend (from root)
-cd ..\backend
-npm install
-```
 
-3. Configure environment variables
-- Backend: copy `backend/.env.example` and set values (mongodb URI, JWT secret, frontend origins)
-  ```powershell
-  cd backend
-  copy .env.example .env
-  # Edit .env and set MONGO_URI, MONGO_DB_NAME, JWT_SECRET, FRONTEND_ORIGIN
-  ```
-- Frontend: update `.env.local` (if missing, create it) to set `NEXT_PUBLIC_API_BASE_URL`.
-  ```powershell
-  cd ..\frontend
-  # Create/modify .env.local
-  # NEXT_PUBLIC_API_BASE_URL=http://localhost:5000/api
-  ```
 
-4. Start development servers
-- Backend:
-```powershell
-cd backend
-npm run dev
-```
-- Frontend:
-```powershell
-cd frontend
-pnpm dev
-```
-
-5. Optional: Seed sample data (backend):
-```powershell
-cd backend
-npm run seed
-```
-
----
-### Required environment variables (backend)
-- MONGO_URI (e.g., mongodb://127.0.0.1:27017)
-- MONGO_DB_NAME
-- JWT_SECRET
-- FRONTEND_ORIGIN (comma-separated list of allowed frontends)
-- PORT (optional, defaults to 5000)
-
----
-### Notes
 - Make sure MongoDB is running (local or a managed instance like Atlas). If running locally and you haven’t created a `.env` file, the backend will fall back to `mongodb://127.0.0.1:27017` for development.
 - The frontend defaults `NEXT_PUBLIC_API_BASE_URL` to `http://localhost:5000/api` if not set. Update it if your API runs elsewhere.
 - If you added or changed configs, and you see CORS issues, verify `FRONTEND_ORIGIN` in the backend `.env` & allowed list in `server.js`.
