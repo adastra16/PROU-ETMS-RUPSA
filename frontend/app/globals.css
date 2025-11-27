@@ -4,35 +4,38 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #f3f7f9;
-  --foreground: #0f1720;
-  --card: oklch(0.14 0.02 270);
-  --card-foreground: #0f1720;
-  --popover: oklch(0.12 0.015 270);
-  --popover-foreground: #0f1720;
-  --primary: #0ea5a1;
-  --primary-foreground: #ffffff;
-  --secondary: #7c3aed;
-  --secondary-foreground: #ffffff;
-  --muted: #eef2f7;
-  --muted-foreground: #6b7280;
-  --accent: #22d3ee;
-  --accent-foreground: #0f1720;
+  --background: #030303; /* default black background */
+  /* gradient for backgrounds - subtle greys */
+  --bg-gradient-start: #0b0b0b; /* near-black */
+  --bg-gradient-end: #131313; /* slightly lighter black */
+  --foreground: #D1D5DB; /* gray-300 */
+  --card: #0d0f12; /* card background - dark */
+  --card-foreground: #D1D5DB;
+  --popover: #0d0f12;
+  --popover-foreground: #D1D5DB;
+  --primary: #9CA3AF; /* neutral grey accent */
+  --primary-foreground: #030303;
+  --secondary: #6B7280; /* darker grey */
+  --secondary-foreground: #D1D5DB;
+  --muted: #111827;
+  --muted-foreground: #9CA3AF;
+  --accent: #9CA3AF;
+  --accent-foreground: #030303;
   --destructive: oklch(0.6 0.22 25);
   --destructive-foreground: oklch(0.97 0.005 270);
-  --border: #e6eef3;
+  --border: #141414;
   --input: oklch(0.18 0.02 270);
-  --ring: oklch(0.72 0.19 165);
+  --ring: #4B5563;
   --chart-1: oklch(0.72 0.19 165);
   --chart-2: oklch(0.68 0.16 195);
   --chart-3: oklch(0.62 0.2 280);
   --chart-4: oklch(0.78 0.16 85);
   --chart-5: oklch(0.68 0.2 330);
   --radius: 0.75rem;
-  --sidebar: #ffffff;
-  --sidebar-foreground: #0f1720;
-  --sidebar-primary: #0ea5a1;
-  --sidebar-primary-foreground: #ffffff;
+  --sidebar: #070707;
+  --sidebar-foreground: #D1D5DB;
+  --sidebar-primary: #9CA3AF;
+  --sidebar-primary-foreground: #0b0b0b;
   --sidebar-accent: oklch(0.18 0.02 270);
   --sidebar-accent-foreground: oklch(0.97 0.005 270);
   --sidebar-border: oklch(0.22 0.02 270);
@@ -43,19 +46,21 @@
 }
 
 .dark {
-  --background: #0b1220;
+  --background: #030303;
+  --bg-gradient-start: #070707;
+  --bg-gradient-end: #0b0b0b;
   --foreground: #e6eef3;
   --card: oklch(0.14 0.02 270);
   --card-foreground: #e6eef3;
   --popover: oklch(0.12 0.015 270);
   --popover-foreground: #e6eef3;
-  --primary: #2dd4bf;
-  --primary-foreground: #0b1220;
-  --secondary: #8b5cf6;
+  --primary: #9CA3AF;
+  --primary-foreground: #0b0b0b;
+  --secondary: #6B7280;
   --secondary-foreground: #e6eef3;
-  --muted: #102030;
+  --muted: #0e1114;
   --muted-foreground: #94a3b8;
-  --accent: #22d3ee;
+  --accent: #9CA3AF;
   --accent-foreground: #0b1220;
   --destructive: oklch(0.6 0.22 25);
   --destructive-foreground: oklch(0.97 0.005 270);
@@ -67,10 +72,10 @@
   --chart-3: oklch(0.62 0.2 280);
   --chart-4: oklch(0.78 0.16 85);
   --chart-5: oklch(0.68 0.2 330);
-  --sidebar: oklch(0.1 0.01 270);
-  --sidebar-foreground: oklch(0.97 0.005 270);
-  --sidebar-primary: oklch(0.72 0.19 165);
-  --sidebar-primary-foreground: oklch(0.1 0.01 270);
+  --sidebar: #070707;
+  --sidebar-foreground: #e6eef3;
+  --sidebar-primary: #9CA3AF;
+  --sidebar-primary-foreground: #070707;
   --sidebar-accent: oklch(0.18 0.02 270);
   --sidebar-accent-foreground: oklch(0.97 0.005 270);
   --sidebar-border: oklch(0.22 0.02 270);
@@ -126,7 +131,11 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground;
+    background-image: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
   }
 }
 
@@ -146,8 +155,8 @@
 }
 
 .glow-primary {
-  /* teal glow */
-  box-shadow: 0 0 50px rgba(14, 165, 161, 0.12), 0 0 100px rgba(14, 165, 161, 0.06);
+  /* neutral grey glow */
+  box-shadow: 0 0 40px rgba(156, 163, 175, 0.08), 0 0 80px rgba(156, 163, 175, 0.04);
 }
 
 .glow-accent {
@@ -155,7 +164,7 @@
 }
 
 .text-glow {
-  text-shadow: 0 0 30px rgba(14, 165, 161, 0.4);
+  text-shadow: 0 0 30px rgba(148, 163, 184, 0.35);
 }
 
 /* Smooth scrollbar */

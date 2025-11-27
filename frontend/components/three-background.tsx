@@ -42,7 +42,7 @@ function GridPlane() {
   return (
     <mesh ref={meshRef} rotation={[-Math.PI / 2, 0, 0]} position={[0, -5, 0]}>
       <planeGeometry args={[60, 60, 40, 40]} />
-      <meshBasicMaterial color="#22d3ee" wireframe transparent opacity={0.025} />
+      <meshBasicMaterial color="#111827" transparent opacity={0.05} />
     </mesh>
   )
 }
@@ -66,24 +66,23 @@ function GlowOrb({ position, color }: { position: [number, number, number]; colo
 
 export function ThreeBackground() {
   return (
-    <div className="fixed inset-0 -z-10">
-      <Canvas camera={{ position: [0, 0, 12], fov: 55 }}>
-        <color attach="background" args={["#0a0a12"]} />
-        <fog attach="fog" args={["#0a0a12", 8, 35]} />
+    <div className="fixed inset-0 -z-10 bg-gradient-to-br from-[#050505] via-[#0b0b0b] to-[#090909]">
+      <Canvas camera={{ position: [0, 0, 12], fov: 55 }} style={{ background: 'transparent' }}>
+        <fog attach="fog" args={["#050505", 8, 35]} />
         <ambientLight intensity={0.15} />
-        <pointLight position={[10, 10, 10]} intensity={0.4} color="#34d399" />
-        <pointLight position={[-10, -10, -10]} intensity={0.2} color="#22d3ee" />
+        <pointLight position={[10, 10, 10]} intensity={0.23} color="#9CA3AF" />
+        <pointLight position={[-10, -10, -10]} intensity={0.12} color="#6B7280" />
 
-        <Stars radius={80} depth={60} count={2500} factor={4} saturation={0} fade speed={0.8} />
+        <Stars radius={80} depth={40} count={600} factor={3} saturation={0} fade speed={0.5} />
 
-        <AnimatedSphere position={[-5, 2, -8]} color="#34d399" speed={1.2} size={1.5} />
-        <AnimatedSphere position={[6, -1, -10]} color="#22d3ee" speed={0.9} size={1.8} />
-        <AnimatedSphere position={[0, 4, -12]} color="#a78bfa" speed={0.7} size={1.2} />
-        <AnimatedSphere position={[-3, -3, -6]} color="#f472b6" speed={1.4} size={0.8} />
+        <AnimatedSphere position={[-6, 1.5, -9]} color="#6B7280" speed={1.0} size={1.6} />
+        <AnimatedSphere position={[6.5, -2, -11]} color="#4B5563" speed={0.8} size={1.9} />
+        <AnimatedSphere position={[0, 4, -14]} color="#9CA3AF" speed={0.6} size={1.2} />
+        <AnimatedSphere position={[-3, -3, -6]} color="#737373" speed={1.3} size={0.8} />
 
-        <GlowOrb position={[3, 2, -4]} color="#34d399" />
-        <GlowOrb position={[-4, -1, -5]} color="#22d3ee" />
-        <GlowOrb position={[2, -2, -3]} color="#a78bfa" />
+        <GlowOrb position={[3, 2, -4]} color="#9CA3AF" />
+        <GlowOrb position={[-4, -1, -5]} color="#6B7280" />
+        <GlowOrb position={[2, -2, -3]} color="#737373" />
 
         <GridPlane />
       </Canvas>
