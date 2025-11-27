@@ -70,6 +70,15 @@ cd backend
 npm install
 ```
 
+### 2.1 Generate PNG icons (optional)
+If you'd like to generate PNG icon variants from the project's SVG (`frontend/public/icon.svg`) for apple-touch and favicons, run the included script from the frontend directory:
+
+```powershell
+cd frontend
+pnpm install # include dev deps (sharp)
+npm run generate-icons
+```
+
 ### 3. Configure environment variables
 - **Frontend**: Edit `.env.local` (API base URL)
 - **Backend**: Edit `backend/.env` (MongoDB URI, JWT secret, allowed origins)

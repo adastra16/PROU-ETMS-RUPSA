@@ -5,6 +5,7 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev",
+    "generate-icons": "node ./scripts/generate-icons.js",
     "lint": "eslint .",
     "start": "next start"
   },
@@ -80,6 +81,7 @@
     "postcss": "^8.5",
     "tailwindcss": "^4.1.9",
     "tw-animate-css": "1.3.3",
-    "typescript": "^5"
+    "typescript": "^5",
+    "sharp": "^0.33.0"
   }
 }
