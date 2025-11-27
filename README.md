@@ -1,3 +1,12 @@
+### Alternate: Generate `favicon.ico` directly with `png-to-ico`
+If you prefer to create `favicon.ico` directly without installing other packages, you can use `npx`:
+
+```powershell
+npx png-to-ico ./frontend/public/favicon-32x32.png ./frontend/public/favicon-16x16.png > ./frontend/public/favicon.ico
+```
+
+This uses the `png-to-ico` package via `npx` to immediately create a valid `favicon.ico` (if the package is available). If it fails, install locally and re-run `npm run generate-icons` as shown earlier.
+
 
 # Employee Task Management System
 
